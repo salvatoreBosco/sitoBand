@@ -1,48 +1,9 @@
+import observeFunction from './script/observeFunction.js'
+import { story } from "./assets/data.js";
+document.addEventListener('load', createstory())
 
-//elements
-var elements_to_watch = document.querySelectorAll('.watch')
-
-//callback
-var callback = function(items){
-    items.forEach((item) => {
-        if(item.isIntersecting){
-            item.target.classList.add("in-page")
-        }else{
-            item.target.classList.remove("in-page")
-        } 
-    });
-}
-
-//observe
-var observe = new IntersectionObserver(callback, { threshold: 0.6 });
-
-//apply
-elements_to_watch.forEach((element)=>{
-    observe.observe(element);
-})
-
-//elements
-var elements_to_watch = document.querySelectorAll('.watch2')
-
-//callback
-var callback = function(items){
-    items.forEach((item) => {
-        if(item.isIntersecting){
-            item.target.classList.add("in-page2")
-        }else{
-            item.target.classList.remove("in-page2")
-        } 
-    });
-}
-
-//observe
-var observe = new IntersectionObserver(callback, { threshold: 0.22 });
-
-//apply
-elements_to_watch.forEach((element)=>{
-    observe.observe(element);
-})
-
+observeFunction('.watch', 'in-page', 0.6)
+observeFunction('.watch2', 'in-page2', 0.6)
 
 function goTo(p) {
     if(p == 0){
@@ -51,3 +12,10 @@ function goTo(p) {
         window.location.href = "https://www.facebook.com/AnforsynOfficial"
     }
 }
+
+function createstory(){
+    const divStory = document.querySelector('.story')
+    const div = document.createElement('div')
+    story.forEach(())
+}
+
